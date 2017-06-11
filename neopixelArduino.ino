@@ -1,3 +1,5 @@
+// requires https://github.com/kroimon/Arduino-SerialCommand
+
 #include <SerialCommand.h>
 
 #include <Adafruit_NeoPixel.h>
