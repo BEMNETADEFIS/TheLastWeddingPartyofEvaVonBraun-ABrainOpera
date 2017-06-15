@@ -1,5 +1,3 @@
-// requires https://github.com/kroimon/Arduino-SerialCommand
-
 #include <SerialCommand.h>
 
 #include <Adafruit_NeoPixel.h>
@@ -10,9 +8,9 @@
 #define PIN            6
 
 // How many NeoPixels are attached to the Arduino?
-#define NUMPIXELS      16
+#define NUMPIXELS      3
 
-SerialCommand sCmd;     // The demo SerialCommand object
+SerialCommand sCmd;     // The SerialCommand object
 
 // When we setup the NeoPixel library, we tell it how many pixels, and which pin to use to send signals.
 // Note that for older NeoPixel strips you might need to change the third parameter--see the strandtest
@@ -29,7 +27,7 @@ void setup() {
   // End of trinket special code
 
   Serial.begin(115200);
-  sCmd.addCommand("setColor",    setColor);          // Turns LED on
+  sCmd.addCommand("setColor",    setColor);          // Set LED color
 
   pixels.begin(); // This initializes the NeoPixel library.
 }
@@ -55,6 +53,5 @@ void setColor() {
   }
   for (int i = 0; i < 3; i++)
     pixels.setPixelColor(i, c);
-  //pixels.setPixelColor(arg[0], pixels.Color(0, 150, 0));
   pixels.show();
 }
